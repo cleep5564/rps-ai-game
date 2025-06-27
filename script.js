@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "1-4": (gameData, levelConfig) => { // 连击选手
             if (!gameData.aiState.currentMove || gameData.aiState.streakCount >= gameData.aiState.streakLength) {
-                gameData.aiState.currentMove = getRandomElement(Object.values(MOVES));
+                gameData.aiState.currentMove = getRandomElement(Object.values(MOVES).filter(move=>move!==gameData.aiState.currentMove));
                 gameData.aiState.streakLength = getRandomInt(2, 4);
                 gameData.aiState.streakCount = 0;
             }
